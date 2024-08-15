@@ -1,0 +1,24 @@
+{
+  "members": [
+    {
+      "email": "leopoldocanovas@gmail.com",
+      "name": "Leo Cánovas",
+      "role": "member"
+    },
+    {
+      "email": "romulomencos46@gmail.com",
+      "name": "Rómulo Mencos",
+      "role": "member"
+    },
+    {
+      "email": "lucasdiamante@gmail.com",
+      "name": "Lucas Diamante",
+      "role": "member"
+    },
+    {
+      "email": "luisvallsc@gmail.com",
+      "name": "Luis Casanovas",
+      "role": "admin"
+    }
+  ]
+}
