@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "El último encuentro",
+    "author": "Sándor Márai",
+    "IBSN": "9788415470526",
+    "originalPublicationYear": "1942"
+  },
+  {
+    "id": 2,
+    "title": "Noches blancas",
+    "author": "Fyodor Dostoevsky",
+    "IBSN": "9783959281669",
+    "originalPublicationYear": "1848"
+  },
+  {
+    "id": 3,
+    "title": "Frankenstein o el moderno Prometeo",
+    "author": "Mary Shelley",
+    "IBSN": "9788026802877",
+    "originalPublicationYear": "1818"
+  },
+  {
+    "id": 4,
+    "title": "La sonrisa etrusca",
+    "author": "José Luis Sampedro",
+    "IBSN": "9788490327937",
+    "originalPublicationYear": "1985"
+  },
+  {
+    "id": 5,
+    "title": "La línea de sombra",
+    "author": "Joseph Conrad",
+    "IBSN": "9789687748245",
+    "originalPublicationYear": "1917"
+  },
+  {
+    "id": 6,
+    "title": "Un lugar llamado libertad",
+    "author": "Ken Follett",
+    "IBSN": "9788490329481",
+    "originalPublicationYear": "1995"
+  }
+]

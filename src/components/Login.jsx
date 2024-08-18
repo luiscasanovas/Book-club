@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import membersData from '../members.json';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const commonPassword = 'Soyelmejor'; 
+  const commonPassword = 'your-secure-password'; // Replace this with the actual password
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem('email');
+    const savedPassword = localStorage.getItem('password');
+    if (savedEmail && savedPassword) {
+      setEmail(savedEmail);
+      setPassword(savedPassword);
+      setRememberMe(true);
+    }
+  }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -26,9 +37,12 @@ const Login = () => {
       return;
     }
 
-    if (member.role !== 'admin' && member.role !== 'member') {
-      setError('You do not have the correct role to log in.');
-      return;
+    if (rememberMe) {
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password);
+    } else {
+      localStorage.removeItem('email');
+      localStorage.removeItem('password');
     }
 
     sessionStorage.setItem('isAuthenticated', 'true');
@@ -37,29 +51,43 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleLogin}>
-        <div>
+    <div className="container mt-5">
+      <header className="text-center mb-5">
+        <img src={`${process.env.PUBLIC_URL}/logo2.png`} alt="Book Club Logo" className="img-fluid" style={{ maxWidth: '150px' }} />
+        <h1 className="mt-3">Login</h1>
+      </header>
+      {error && <p className="text-danger">{error}</p>}
+      <form onSubmit={handleLogin} className="mx-auto" style={{ maxWidth: '400px' }}>
+        <div className="form-group">
           <label>Email:</label>
           <input
             type="email"
+            className="form-control"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Password:</label>
           <input
             type="password"
+            className="form-control"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <div className="form-group form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            checked={rememberMe}
+            onChange={(e) => setRememberMe(e.target.checked)}
+          />
+          <label className="form-check-label">Remember Me</label>
+        </div>
+        <button type="submit" className="btn btn-custom btn-block">Login</button>
       </form>
     </div>
   );
